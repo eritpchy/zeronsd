@@ -11,9 +11,11 @@ RUN nix \
 RUN mkdir /tmp/nix-store-closure
 RUN cp -R $(nix-store -qR result/) /tmp/nix-store-closure
 
-FROM scratch
+FROM alpine:latest
 
 WORKDIR /
+
+RUN apk add ca-certificates
 
 # Copy /nix/store
 COPY --from=builder /tmp/nix-store-closure /nix/store
