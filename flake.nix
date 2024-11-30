@@ -40,6 +40,9 @@
           buildInputs = devInputs;
 
           cargoLock.lockFile = ./Cargo.lock;
+          cargoLock.outputHashes = {
+            "trust-dns-client-0.22.0" = "sha256-2tF04nryhqgRzs4JH/hk4PZt5rDQFlrpWrNNdKd2w8A=";
+          };
         };
       in rec {
         devShells.default = pkgs.mkShell {
